@@ -744,7 +744,7 @@
     .modal__content {
       background: #fff;
       width: 90%;
-      max-width: 400px;
+      max-width: 430px;
       padding: 30px 20px;
       border-radius: 15px;
       position: relative;
@@ -817,7 +817,7 @@
 
     .phone__wrapper input {
       border: none;
-      background: transparent;
+      background-color: transparent;
       padding: 14px 8px;
     }
 
@@ -841,6 +841,51 @@
     .modal__submit:active {
       transform: translateY(2px);
       box-shadow: 0 2px 0 #CA1211;
+    }
+
+    /* Ekran 500px dan kichik bo'lganda ishlaydi */
+    @media (max-width: 500px) {
+      .modal__content {
+        width: 95%;
+        /* Yonlarida ozgina joy qoladi */
+        padding: 20px;
+        /* Ichki masofani biroz kamaytiramiz */
+        margin: 0 10px;
+        border-radius: 15px;
+        /* Burchaklarni yumshoqroq qilamiz */
+      }
+
+      .modal__title {
+        font-size: 18px;
+        /* Sarlavhani kichraytiramiz */
+        line-height: 1.3;
+        margin-bottom: 20px;
+      }
+
+      .input__group label {
+        font-size: 14px;
+      }
+
+      .phone__wrapper {
+        padding: 5px;
+        /* Input ichidagi joyni moslaymiz */
+      }
+
+      .prefix {
+        font-size: 14px;
+      }
+
+      #userPhone {
+        font-size: 14px;
+        padding: 10px 5px;
+      }
+
+      .modal__submit {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+        border-radius: 10px;
+      }
     }
   </style>
 </head>
@@ -888,7 +933,7 @@
           <img src="./images/days/days__img__1.avif" alt="img" class="days__logo" width="258" height="283"
             fetchpriority="high">
         </div>
-        <button class="days__btn">Bepul konsultatsiya olish</button>
+        <button class="days__btn" id="open">Bepul konsultatsiya olish</button>
       </div>
     </section>
   </div>
@@ -1000,7 +1045,7 @@
         <p class="running__flex__text">Narxi: 2 999 000 so’m</p>
         <span class="running__flex__span">-10%</span>
       </div>
-      <button class="running__btn">buyurtma berish</button>
+      <button class="running__btn" id="open">buyurtma berish</button>
     </div>
   </section>
 
@@ -1008,7 +1053,7 @@
     <div class="help__container container">
       <p class="help__text">M3 Trenajyori yordamida <b> yangi hayot tarzingizni boshlang </b> hoziroq bepul
         konsultatsiyaga yoziling!</p>
-      <button class="help__btn">bepul konsultatsiya olish</button>
+      <button class="help__btn" id="open">bepul konsultatsiya olish</button>
     </div>
   </section>
 
@@ -1058,7 +1103,7 @@
         </div>
       </div>
 
-      <button class="benefit__btn">hoziroq buyurtma berish</button>
+      <button class="benefit__btn" id="open">hoziroq buyurtma berish</button>
     </div>
   </section>
 
@@ -1112,10 +1157,9 @@
   <div class="modal" id="authModal">
     <div class="modal__content">
       <button class="modal__close" id="closeModal" aria-label="Yopish">&times;</button>
-
       <h2 class="modal__title">Ro'yxatdan o'tish uchun ma'lumotlaringizni kiriting!</h2>
 
-      <form class="modal__form" id="registrationForm">
+      <form id="registrationForm">
         <div class="input__group">
           <label for="userName">Ismingiz:</label>
           <input type="text" id="userName" placeholder="Ismingizni kiriting" required>
@@ -1125,31 +1169,21 @@
           <label for="userPhone">Telefon raqamingiz:</label>
           <div class="phone__wrapper">
             <div class="country__code">
-              <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"
-                style="border-radius: 2px; box-shadow: 0 0 1px rgba(0,0,0,0.5);">
-                <path d="M0 0H24V5.33333H0V0Z" fill="#0099B5" />
-                <path d="M0 5.33333H24V10.6667H0V5.33333Z" fill="white" />
-                <path d="M0 10.6667H24V16H0V10.6667Z" fill="#1EB53A" />
-                <path d="M0 5.33333H24V6.16667H0V5.33333Z" fill="#CE1126" />
-                <path d="M0 9.83333H24V10.6667H0V9.83333Z" fill="#CE1126" />
-                <circle cx="2.5" cy="1.66667" r="0.4" fill="white" />
-                <circle cx="4.5" cy="1.2" r="0.2" fill="white" />
-                <circle cx="5.5" cy="1.2" r="0.2" fill="white" />
-                <circle cx="6.5" cy="1.2" r="0.2" fill="white" />
-                <circle cx="4.5" cy="2.2" r="0.2" fill="white" />
-                <circle cx="5.5" cy="2.2" r="0.2" fill="white" />
-                <circle cx="6.5" cy="2.2" r="0.2" fill="white" />
-                <circle cx="4.5" cy="3.2" r="0.2" fill="white" />
-                <circle cx="5.5" cy="3.2" r="0.2" fill="white" />
-                <circle cx="6.5" cy="3.2" r="0.2" fill="white" />
+              <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
+                <path d="M0 0H24V5.33H0V0Z" fill="#0099B5" />
+                <path d="M0 5.33H24V10.66H0V5.33Z" fill="white" />
+                <path d="M0 10.66H24V16H0V10.66Z" fill="#1EB53A" />
+                <path d="M0 5.33H24V6.16H0V5.33Z" fill="#CE1126" />
+                <path d="M0 9.83H24V10.66H0V9.83Z" fill="#CE1126" />
+                <circle cx="2.5" cy="1.66" r="0.4" fill="white" />
               </svg>
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left: 4px;">
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
                 <path d="M1 1L5 5L9 1" stroke="#333" stroke-width="1.5" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
             </div>
             <span class="prefix">+998</span>
-            <input type="tel" id="userPhone" placeholder="88 888 88 88" required>
+            <input type="tel" id="userPhone" placeholder="88 888 88 88" required maxlength="12">
           </div>
         </div>
 
@@ -1157,8 +1191,6 @@
       </form>
     </div>
   </div>
-
-
 
   <script src="./js/main.js"></script>
 
