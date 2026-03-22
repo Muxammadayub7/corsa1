@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Google Apps Script URL
 	const scriptURL =
-		'https://script.google.com/macros/s/AKfycby2wqyeVovrC2lhhPPW_gBCoAd9ycxlY-9VqVWv9aPfwPKVFtjpX08BfPSs5Ug5KL4YkA/exec'
+		'https://script.google.com/macros/s/AKfycbxjg-a3rcf39G4sfRjJXAkvA9-zfmBVFBnDcKMGpxqvi37OFf6qnSDigb0-MFoO-OuEjg/exec'
 
 	// 1. Modalni ochish
 	document.querySelectorAll('#open').forEach(btn => {
