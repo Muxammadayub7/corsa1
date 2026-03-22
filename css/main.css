@@ -1,25 +1,21 @@
 @font-face {
 	font-family: Onest;
 	src: url(./fonts/onest/Onest-Regular.woff2);
-	font-display: swap;
 }
 
 @font-face {
 	font-family: Buyan;
 	src: url(./fonts/buyan/BuyanBold.woff2);
-	font-display: swap;
 }
 
 @font-face {
 	font-family: Helvetica;
 	src: url(./fonts/helvetica/HelveticaNeueRoman.woff2);
-	font-display: swap;
 }
 
 @font-face {
 	font-family: Bison;
 	src: url(./fonts/bison/Bison-Bold.woff2);
-	font-display: swap;
 }
 
 .modal {
