@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORSA 1</title>
+  <link href="./fonts/buyan/BuyanBold.woff2" as="font" type="font/woff2">
+  <link href="./fonts/onest/Onest-Regular.woff2" as="font" type="font/woff2">
+  <style>
+    @font-face {
+      font-family: Onest;
+      src: url(./fonts/onest/Onest-Regular.woff2);
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Buyan;
+      src: url(./fonts/buyan/BuyanBold.woff2);
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Helvetica;
+      src: url(./fonts/helvetica/HelveticaNeueRoman.woff2);
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Bison;
+      src: url(./fonts/bison/Bison-Bold.woff2);
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    .container {
+      max-width: 390px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 10px
+    }
+
+    .wrapper {
+      background-image: url(../images/wrapper/wrapper__img.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      max-width: 390px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .deliver {
+      background-color: #ec2c2b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 0
+    }
+
+    .deliver__text {
+      font-family: Onest;
+      font-weight: 600;
+      font-size: clamp(10px, 4vw, 14px);
+      line-height: 100%;
+      color: #ffffff
+    }
+
+    .header {
+      padding-bottom: 8px
+    }
+
+    .header__container {
+      background-color: #ffffff;
+      box-shadow: 0px 2px 10px 0px #0000001a;
+      max-width: 390px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px
+    }
+
+    .header__logo {
+      display: flex
+    }
+
+    .header__link {
+      font-family: Onest;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 120%;
+      text-decoration: none;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .days {
+      padding-top: 8px
+    }
+
+    .days__title {
+      font-family: Buyan;
+      font-weight: 700;
+      font-size: clamp(32px, 11vw, 44px);
+      text-align: center;
+      max-width: 352px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2px
+    }
+
+    .days__title span {
+      color: #ec2c2b
+    }
+
+    .days__text {
+      font-family: Onest;
+      font-size: 14px;
+      line-height: 140%;
+      text-align: center;
+      max-width: 293px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 11px
+    }
+
+    .days__inner {
+      display: flex;
+      position: relative
+    }
+
+    .days__inner__row {
+      position: absolute;
+      left: 0px;
+      top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 11
+    }
+
+    .days__inner__row__col {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .days__inner__row__col__text {
+      font-family: Helvetica;
+      font-size: 14px;
+      line-height: 130%;
+      color: #000000;
+      max-width: 99px;
+      width: 100%
+    }
+
+    .days__inner__row__col__text b {
+      text-transform: capitalize
+    }
+
+    .days__inner__row__button {
+      font-family: Onest;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      background-color: #303335;
+      color: white;
+      padding: 5px;
+      border-radius: 5px
+    }
+
+    .days__logo {
+      position: absolute;
+      right: 0;
+      z-index: 5;
+      width: clamp(224px, 66vw, 258px);
+      object-fit: cover
+    }
+
+    .days__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 290px auto 0;
+      max-width: 354px;
+      width: 100%;
+      padding: 26px 0;
+      background-color: #ef1c1c;
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Buyan', sans-serif;
+      font-weight: 700;
+      font-size: clamp(22px, 7vw, 26px);
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      box-shadow: 0px 6px 0px 0px #ca1211, inset 0px 4px 4px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 4px 0px rgba(255, 255, 255, 0.4), 0px 10px 20px 0px rgba(236, 44, 43, 0.5)
+    }
+
+    .cards {
+      padding-top: 25px
+    }
+
+    .cards_text {
+      font-family: Onest;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      text-align: center;
+      max-width: 236px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 16px
+    }
+
+    .cards__images {
+      max-width: 290px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 8px;
+      column-gap: 8px;
+      margin-bottom: 30px
+    }
+
+    .cards__images__img {
+      max-width: clamp(140px, 3vw, 153px);
+      width: 100%
+    }
+
+    .cards__line {
+      border: 5px solid #229cdc33;
+      border-radius: 25px;
+      max-width: 360px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .card__row {
+      max-width: 360px;
+      width: 100%;
+      background: linear-gradient(180deg, #1a8cc6 0%, #229cdc 100%);
+      border-radius: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 8px 20px 8px 8px;
+      display: flex;
+      align-items: start;
+      gap: 10px
+    }
+
+    .card__col {
+      display: flex;
+      flex-direction: column;
+      gap: 4px
+    }
+
+    .card__col__title {
+      font-family: Buyan;
+      font-weight: 700;
+      font-size: clamp(10px, 4vw, 21px);
+      line-height: 120%;
+      letter-spacing: 3%;
+      color: #ffffff;
+      margin-bottom: 2px;
+      max-width: 182px
+    }
+
+    .card__col__flex {
+      display: flex;
+      align-items: center;
+      gap: 4px
+    }
+
+    .card__col__flex:nth-child(2) {
+      display: flex;
+      align-items: start;
+      gap: 4px
+    }
+
+    .galichka {
+      margin-top: 2px
+    }
+
+    .card__col__text {
+      font-family: Onest;
+      font-weight: 400;
+      font-size: clamp(10px, 2vw, 14px);
+      line-height: 140%;
+      text-transform: capitalize;
+      color: white
+    }
+
+    .for {
+      padding-top: 32px;
+      padding-bottom: 16px
+    }
+
+    .for__title {
+      font-family: Bison;
+      font-weight: 300;
+      font-style: Bold;
+      font-size: 38px;
+      line-height: 110%;
+      text-align: center;
+      max-width: 264px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 16px
+    }
+
+    .for__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 16px
+    }
+
+    .for__inner__row {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .for__inner__row__images {
+      background: linear-gradient(180deg, #ec2c2b 0%, #9c0100 100%);
+      max-width: 108px;
+      border-radius: 20px;
+      width: 100%
+    }
+
+    .for__img {
+      border-radius: 20px;
+      margin-bottom: -4px;
+      margin-right: -6px
+    }
+
+    .for__inner__row__text {
+      font-family: Onest;
+      font-weight: 400;
+      font-size: clamp(12px, 4vw, 16px);
+      line-height: 145%;
+      max-width: 238px;
+      width: 100%
+    }
+
+    .for__inner__row__images__blue {
+      background: linear-gradient(180deg, #549dfb 0%, #91bffa 100%);
+      border-radius: 20px;
+      max-width: 108px;
+      width: 100%
+    }
+
+    .running {
+      padding-top: 16px;
+      margin-left: 10px;
+      margin-right: 10px
+    }
+
+    .running__container {
+      border: 3px solid transparent;
+      border-radius: 40px;
+      background-image: linear-gradient(white, white), linear-gradient(180deg, #229cdc 0%, rgba(34, 156, 220, 0) 100%);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      padding: 16px 13px 24px 13px
+    }
+
+    .running__title {
+      font-family: Bison;
+      font-weight: 300;
+      font-size: 38px;
+      line-height: 114.9%;
+      text-align: center;
+      margin-bottom: 15px
+    }
+
+    .running__inner {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+      margin-bottom: 16px
+    }
+
+    .running__row {
+      background-color: #229cdc;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: clamp(3px, 1vw, 4px);
+      border-radius: 10px;
+      width: 100%;
+      box-sizing: border-box
+    }
+
+    .running__row img {
+      width: clamp(40px, 8vw, 55px);
+      height: auto;
+      border-radius: 4px
+    }
+
+    .running__row__text {
+      font-family: 'Helvetica', sans-serif;
+      font-weight: 400;
+      color: white;
+      line-height: 1.2;
+      font-size: clamp(10px, 3vw, 13px)
+    }
+
+    .running__row__text b {
+      font-weight: 700;
+      display: block
+    }
+
+    .running__text {
+      font-family: Helvetica;
+      font-weight: 400;
+      font-size: clamp(12px, 4vw, 16px);
+      line-height: 140%;
+      text-align: left;
+      margin-bottom: 8px
+    }
+
+    .running__flex {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 16px
+    }
+
+    .running__flex__text {
+      font-family: Onest;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      color: #ffffff;
+      background-color: #229cdc;
+      max-width: 157px;
+      width: 100%;
+      padding: 4px;
+      border-radius: 5px
+    }
+
+    .running__flex__span {
+      font-family: Onest;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 100%;
+      color: #ffffff;
+      background-color: #ec2c2b;
+      width: 34px;
+      border-radius: 5px;
+      padding: 2px 3px
+    }
+
+    .running__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 338px;
+      width: 100%;
+      padding: 26px 0;
+      background-color: #ef1c1c;
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Buyan', sans-serif;
+      font-weight: 700;
+      font-size: clamp(22px, 7vw, 26px);
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      box-shadow: 0px 6px 0px 0px #ca1211, inset 0px 4px 4px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 4px 0px rgba(255, 255, 255, 0.4), 0px 10px 20px 0px rgba(236, 44, 43, 0.5);
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .help {
+      padding-top: 32px;
+      padding-bottom: 21px;
+      padding-left: 10px;
+      padding-right: 10px
+    }
+
+    .help__container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 16px 22px;
+      border-radius: 30px;
+      text-align: center;
+      color: white;
+      background: url('../images/wrapper/wrapper__img.svg') no-repeat center / cover, linear-gradient(180deg, #229cdc 0%, #61c9ff 100%) !important
+    }
+
+    .help__text {
+      font-family: Helvetica;
+      font-weight: 400;
+      font-size: clamp(15px, 4vw, 18px);
+      line-height: 140%;
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 16px
+    }
+
+    .help__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 323px;
+      width: 100%;
+      padding: 26px 0;
+      background-color: #ef1c1c;
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Buyan', sans-serif;
+      font-weight: 700;
+      font-size: clamp(22px, 7vw, 26px);
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      box-shadow: 0px 6px 0px 0px #ca1211, inset 0px 4px 4px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 4px 0px rgba(255, 255, 255, 0.4), 0px 10px 20px 0px rgba(236, 44, 43, 0.5);
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .benefit {
+      padding-top: 21px;
+      padding-bottom: 28px
+    }
+
+    .benefit__container {
+      background: url('../images/wrapper/wrapper__img.svg') no-repeat center / cover, linear-gradient(180deg, #229cdc 0%, #61c9ff 100%) !important;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      padding: 24px 10px
+    }
+
+    .benefit__title {
+      font-family: Buyan;
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 110.00000000000001%;
+      text-align: center;
+      color: white;
+      margin-bottom: 16px
+    }
+
+    .benefit__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .benefit__row {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: white;
+      margin-bottom: 24px;
+      max-width: 263px;
+      width: 100%;
+      border-radius: 30px
+    }
+
+    .benefit__col {
+      position: relative
+    }
+
+    .benefit__img {
+      margin-top: -10px;
+    }
+
+    .ticket__red {
+      background-color: #ec2c2b;
+      padding: 7px 5px 7px 6px;
+      border-radius: 50px;
+      border: 1px solid #ffffff;
+      position: absolute;
+      right: 130px;
+      bottom: 8px
+    }
+
+    .benefit__row__text {
+      font-family: Onest;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      text-align: center;
+      padding: 8px 16px 16px 15px
+    }
+
+    .ticket__blue {
+      background-color: #549dfb;
+      padding: 7px 5px 7px 6px;
+      border-radius: 50px;
+      border: 1px solid #ffffff;
+      position: absolute;
+      right: 130px;
+      bottom: 8px
+    }
+
+    .benefit__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 327px;
+      width: 100%;
+      padding: 26px 0;
+      background-color: #ef1c1c;
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Buyan', sans-serif;
+      font-weight: 700;
+      font-size: clamp(22px, 4vw, 26px);
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      box-shadow: 0px 6px 0px 0px #ca1211, inset 0px 4px 4px 0px rgba(255, 255, 255, 0.4), inset 0px -4px 4px 0px rgba(255, 255, 255, 0.4), 0px 10px 20px 0px rgba(236, 44, 43, 0.5);
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .footer {
+      padding-top: 42px
+    }
+
+    .footer__container {
+      background-color: #202020;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 18px 0 24px 0;
+      border-top-left-radius: 90px;
+      border-top-right-radius: 90px
+    }
+
+    .footer__img {
+      margin-bottom: 32px
+    }
+
+    .footer__text {
+      font-family: Onest;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 100%;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      margin-bottom: 8px
+    }
+
+    .footer__span {
+      font-family: Onest;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 16px
+    }
+
+    .footer__text__manzil {
+      font-family: Onest;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 100%;
+      text-align: center;
+      color: white;
+      margin-bottom: 4px
+    }
+
+    .footer__locat {
+      font-family: Onest;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 16px
+    }
+
+    .footer__links {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .footer__link {
+      padding: 6px;
+      background-color: #FFFFFF;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    /* Modal asosiy qismi */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* Modal ochilgandagi holat */
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal__content {
+      background: #fff;
+      width: 90%;
+      max-width: 400px;
+      padding: 30px 20px;
+      border-radius: 15px;
+      position: relative;
+      font-family: 'Onest', sans-serif;
+      /* Sening asosiy shriftlaring */
+    }
+
+    .modal__close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 30px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .modal__title {
+      font-size: 20px;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 25px;
+      line-height: 1.2;
+      color: #000;
+    }
+
+    .input__group {
+      margin-bottom: 20px;
+    }
+
+    .input__group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .input__group input {
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #E5E7EB;
+      background: #F9FAFB;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .phone__wrapper {
+      display: flex;
+      align-items: center;
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 0 10px;
+    }
+
+    .country__code {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding-right: 10px;
+      border-right: 1px solid #D1D5DB;
+    }
+
+    .prefix {
+      padding-left: 10px;
+      font-weight: 500;
+    }
+
+    .phone__wrapper input {
+      border: none;
+      background: transparent;
+      padding: 14px 8px;
+    }
+
+    .modal__submit {
+      width: 100%;
+      padding: 18px;
+      background: #EF1C1C;
+      /* Sening qizil ranging */
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #CA1211;
+      /* Tugma ostidagi soya */
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .modal__submit:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #CA1211;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="deliver container">
+      <p class="deliver__text"><img src="./images/deliver/deliver__img.svg" alt="deliverImg"> O’zbekiston bo’yicha
+        yetkazib berish BEPUL!</p>
+    </div>
+
+    <header class="header">
+      <div class="header__container container">
+        <a href="./index.html">
+          <img src="./images/header/header__logo.svg" alt="" class="header__logo" width="71" height="17" loading="lazy">
+        </a>
+        <a href="#" class="header__link">
+          +998 94 998 42 24
+          <img src="./images/header/telegram.svg" alt="telegram" width="24" height="24" loading="lazy">
+        </a>
+      </div>
+    </header>
+
+    <section class="days">
+      <div class="days__container container">
+        <h2 class="days__title">Kuniga 30 daqiqa shug’ullanib <span>ortiqcha vazndan</span> xalos bo’ling!</h2>
+        <p class="days__text"><b> Tez charchash</b> va <b>energiya yo‘qligidan </b> qiynalayotganlar uchun yugurish
+          trenajyori</p>
+        <div class="days__inner">
+          <div class="days__inner__row">
+            <div class="days__inner__row__col">
+              <img src="./images/days/days__noice.avif" alt="img" width="46" height="46" loading="lazy"
+                class="days__inner__row__col__img">
+              <p class="days__inner__row__col__text"><b>Shovqinsiz</b> ishlovchi mator</p>
+            </div>
+            <div class="days__inner__row__col">
+              <img src="./images/days/days__phone.avif" alt="img" width="46" height="46" loading="lazy"
+                class="days__inner__row__col__img">
+              <p class="days__inner__row__col__text"><b>Telefon orqali
+                </b> boshqaruv</p>
+            </div>
+            <p class="days__inner__row__button">Narxi: 2 999 000 so’m</p>
+          </div>
+          <img src="./images/days/days__img__1.avif" alt="img" class="days__logo" width="258" height="283"
+            fetchpriority="high">
+        </div>
+        <button class="days__btn">Bepul konsultatsiya olish</button>
+      </div>
+    </section>
+  </div>
+
+  <section class="cards">
+    <div class="cards__container container">
+      <p class="cards_text">Quyidagi <b>dasturlar orqali</b> ham <b>buyurtma</b> berishingiz mumkin:</p>
+      <div class="cards__images">
+        <img src="./images/cards/uzum.webp" alt="card_img" class="cards__images__img" width="153" height="49"
+          loading="lazy">
+        <img src="./images/cards/alifshop.webp" alt="card_img" class="cards__images__img" width="153" height="49"
+          loading="lazy">
+        <img src="./images/cards/yandex.webp" alt="card_img" class="cards__images__img" width="153" height="49"
+          loading="lazy">
+        <img src="./images/cards/wildberries.webp" alt="card_img" class="cards__images__img" width="153" height="49"
+          loading="lazy">
+      </div>
+      <div class="cards__line">
+        <div class="card__row">
+          <img src="./images/cards/trenajor.webp" alt="cardImg" class="card__row__img" width="124" height="124"
+            loading="lazy">
+          <div class="card__col">
+            <h3 class="card__col__title">Toshkent shahri uchun maxsus takliflar!</h3>
+            <div class="card__col__flex">
+              <img src="./images/cards/galichka.svg" alt="galichka" class="galichka">
+              <p class="card__col__text">Sifat kafolati: yoqmasa
+                <b>pulingizni qaytaramiz </b>
+              </p>
+            </div>
+            <div class="card__col__flex">
+              <img src="./images/cards/galichka.svg" alt="galichka" width="11" height="11" loading="lazy">
+              <p class="card__col__text"><b>bepul</b> o'rnatib berish </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="for">
+    <div class="for__container container">
+      <h2 class="for__title">Yugurish trenajyori siz uchun agar...</h2>
+      <div class="for__inner">
+        <div class="for__inner__row">
+          <div class="for__inner__row__images">
+            <img src="./images/for/image 2.webp" alt="forImg" class="for__img" width="">
+          </div>
+          <p class="for__inner__row__text">Agar ortiqcha vazn tufayli <b> o’zingiz istagan kiyimlarni kiya
+              olmasangiz</b> va tashqi ko’rinishingizdan uyalsangiz</p>
+        </div>
+        <div class="for__inner__row">
+          <div class="for__inner__row__images__blue">
+            <img src="./images/for/image 3.webp" alt="forImg" class="for__img" width="">
+          </div>
+          <p class="for__inner__row__text">Agar <b> tez charchasangiz,</b> nafas qissa, <b> tizza va bel og’risa,</b>
+            issiq kunlarda esa <b>kuchli terlash,</b> tanada esa noxush hidlar bo’lsa</p>
+        </div>
+        <div class="for__inner__row">
+          <div class="for__inner__row__images">
+            <img src="./images/for/image 4.webp" alt="forImg" class="for__img" width="">
+          </div>
+          <p class="for__inner__row__text">Agar <b>ertalab turishga qiynalsangiz,</b> ish vaqtida ham uyqu bosaversa,
+            o’zingizni doim <b>energiyasiz</b> his qilasangiz</p>
+        </div>
+        <div class="for__inner__row">
+          <div class="for__inner__row__images__blue">
+            <img src="./images/for/image 5.webp" alt="forImg" class="for__img" width="">
+          </div>
+          <p class="for__inner__row__text"><b>Farzandingiz bilan</b> yugurib o’ynolmaysiz, semiz tana tuzilishingiz
+            <b>juftingizga ham yoqmaydi</b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="running">
+    <div class="running__container container">
+      <h2 class="running__title">M3 yugurish <br> trenajyori haqida</h2>
+      <div class="running__inner">
+        <div class="running__row">
+          <img src="./images/days/days__noice.avif" alt="RunninImg" width="46" height="46">
+          <p class="running__row__text"><b>Shovqinsiz</b> ishlovchi mator</p>
+        </div>
+        <div class="running__row">
+          <img src="./images/running/running__2.png" alt="RunninImg" width="46" height="46">
+          <p class="running__row__text"><b>Shovqinsiz</b> ishlovchi mator</p>
+        </div>
+        <div class="running__row">
+          <img src="./images/running/running__3.png" alt="RunninImg" width="46" height="46">
+          <p class="running__row__text"><b>Shovqinsiz</b> ishlovchi mator</p>
+        </div>
+        <div class="running__row">
+          <img src="./images/days/days__phone.avif" alt="RunninImg" width="46" height="46">
+          <p class="running__row__text"><b>Shovqinsiz</b> ishlovchi mator</p>
+        </div>
+      </div>
+      <p class="running__text">
+        <b>Boshqaruv:</b> Telefon, bluetooth va simsiz pult
+        <b>Motor quvvati: </b> 2.25 ot kuchi <br>
+        <b>Xavfsizlik: </b> Maxsus kalit (favquotda to’xtatish) <br>
+        <b>Tezlik:</b> Soatiga 10km gacha <br>
+        <b>Yugurish maydoni:</b> 103x39 sm <br>
+        <b>Maksimal yuklama:</b> 120 kg gacha <br>
+        <b>Motor:</b> Shovqinsiz <br>
+        <b>LED ekran:</b> Favqulotda to’xtatish / tezlikni sozlash <br> / puls datchigi
+      </p>
+      <div class="running__flex">
+        <p class="running__flex__text">Narxi: 2 999 000 so’m</p>
+        <span class="running__flex__span">-10%</span>
+      </div>
+      <button class="running__btn">buyurtma berish</button>
+    </div>
+  </section>
+
+  <section class="help">
+    <div class="help__container container">
+      <p class="help__text">M3 Trenajyori yordamida <b> yangi hayot tarzingizni boshlang </b> hoziroq bepul
+        konsultatsiyaga yoziling!</p>
+      <button class="help__btn">bepul konsultatsiya olish</button>
+    </div>
+  </section>
+
+  <section class="benefit">
+    <div class="benefit__container container">
+      <h2 class="benefit__title">
+        Trenajyor sizga <br> qanday foyda beradi?
+      </h2>
+
+      <div class="benefit__inner">
+        <div class="benefit__row">
+          <div class="benefit__col">
+            <img src="./images/benefit/benefit__img__1.webp" alt="BenefitImg" class="benefit__img" width="283"
+              height="159">
+            <img src="./images/benefit/ticket.svg" alt="ticket" class="ticket__red">
+          </div>
+          <p class="benefit__row__text"><b>Uyingizda shug’ullanasiz,</b> ortiqcha bosim yo’q sizni hech kim kuzatib
+            turmaydi va hech kimdan <b>uyalmaysiz</b></p>
+        </div>
+        <div class="benefit__row">
+          <div class="benefit__col">
+            <img src="./images/benefit/benefit__img__2.webp" alt="BenefitImg" class="benefit__img" width="283"
+              height="159">
+            <img src="./images/benefit/ticket.svg" alt="ticket" class="ticket__blue">
+          </div>
+          <p class="benefit__row__text">Istalgan vaqtda shug’ullanasiz, sevimli mashg’ulotingiz bilan birgalikda.
+            <b>Film ko’rib yoki kitob o’qib...</b>
+          </p>
+        </div>
+        <div class="benefit__row">
+          <div class="benefit__col">
+            <img src="./images/benefit/benefit__img__3.webp" alt="BenefitImg" class="benefit__img" width="283"
+              height="159">
+            <img src="./images/benefit/ticket.svg" alt="ticket" class="ticket__red">
+          </div>
+          <p class="benefit__row__text">Maxsus <b>sport formasi ham shart</b> emas o‘zingizga qulay kiyimda
+            shug‘ullanasiz</p>
+        </div>
+        <div class="benefit__row">
+          <div class="benefit__col">
+            <img src="./images/benefit/benefit__img__4.webp" alt="BenefitImg" class="benefit__img" width="283"
+              height="159">
+            <img src="./images/benefit/ticket.svg" alt="ticket" class="ticket__blue">
+          </div>
+          <p class="benefit__row__text">Bunaqa sharoitda siz <b>shug’ullanishni doimiy odatga</b> aylantirasiz va
+            natijada ortiqcha vazndan qutulasiz</p>
+        </div>
+      </div>
+
+      <button class="benefit__btn">hoziroq buyurtma berish</button>
+    </div>
+  </section>
+
+  <div class="cards__line">
+    <div class="card__row">
+      <img src="./images/cards/trenajor.webp" alt="cardImg" class="card__row__img" width="124" height="124">
+      <div class="card__col">
+        <h3 class="card__col__title">Toshkent shahri uchun maxsus takliflar!</h3>
+        <div class="card__col__flex">
+          <img src="./images/cards/galichka.svg" alt="galichka" class="galichka">
+          <p class="card__col__text">Sifat kafolati: yoqmasa
+            <b>pulingizni qaytaramiz </b>
+          </p>
+        </div>
+        <div class="card__col__flex">
+          <img src="./images/cards/galichka.svg" alt="galichka">
+          <p class="card__col__text"><b>bepul</b> o'rnatib berish </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__container container">
+      <a href="#">
+        <img src="./images/footer/footer__img.svg" alt="img" class="footer__img">
+      </a>
+      <a href="#" class="footer__text">
+        +998 94 998 42 24
+      </a>
+      <span class="footer__span">Ish vaqti: 10:00-22:00</span>
+      <p class="footer__text__manzil">Manzil:</p>
+      <a href="#" class="footer__locat">
+        Toshkent shahri, <br>
+        Uchtepa tumani, 57-A uy
+      </a>
+      <div class="footer__links">
+        <a href="" class="footer__link">
+          <img src="./images/footer/telegram.svg" alt="telegram">
+        </a>
+        <a href="" class="footer__link">
+          <img src="./images/footer/instagram.svg" alt="telegram">
+        </a>
+        <a href="" class="footer__link">
+          <img src="./images/footer/facebook.svg" alt="facebook">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="authModal">
+    <div class="modal__content">
+      <button class="modal__close" id="closeModal" aria-label="Yopish">&times;</button>
+
+      <h2 class="modal__title">Ro'yxatdan o'tish uchun ma'lumotlaringizni kiriting!</h2>
+
+      <form class="modal__form" id="registrationForm">
+        <div class="input__group">
+          <label for="userName">Ismingiz:</label>
+          <input type="text" id="userName" placeholder="Ismingizni kiriting" required>
+        </div>
+
+        <div class="input__group">
+          <label for="userPhone">Telefon raqamingiz:</label>
+          <div class="phone__wrapper">
+            <div class="country__code">
+              <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="border-radius: 2px; box-shadow: 0 0 1px rgba(0,0,0,0.5);">
+                <path d="M0 0H24V5.33333H0V0Z" fill="#0099B5" />
+                <path d="M0 5.33333H24V10.6667H0V5.33333Z" fill="white" />
+                <path d="M0 10.6667H24V16H0V10.6667Z" fill="#1EB53A" />
+                <path d="M0 5.33333H24V6.16667H0V5.33333Z" fill="#CE1126" />
+                <path d="M0 9.83333H24V10.6667H0V9.83333Z" fill="#CE1126" />
+                <circle cx="2.5" cy="1.66667" r="0.4" fill="white" />
+                <circle cx="4.5" cy="1.2" r="0.2" fill="white" />
+                <circle cx="5.5" cy="1.2" r="0.2" fill="white" />
+                <circle cx="6.5" cy="1.2" r="0.2" fill="white" />
+                <circle cx="4.5" cy="2.2" r="0.2" fill="white" />
+                <circle cx="5.5" cy="2.2" r="0.2" fill="white" />
+                <circle cx="6.5" cy="2.2" r="0.2" fill="white" />
+                <circle cx="4.5" cy="3.2" r="0.2" fill="white" />
+                <circle cx="5.5" cy="3.2" r="0.2" fill="white" />
+                <circle cx="6.5" cy="3.2" r="0.2" fill="white" />
+              </svg>
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left: 4px;">
+                <path d="M1 1L5 5L9 1" stroke="#333" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <span class="prefix">+998</span>
+            <input type="tel" id="userPhone" placeholder="88 888 88 88" required>
+          </div>
+        </div>
+
+        <button type="submit" class="modal__submit">Davom etish</button>
+      </form>
+    </div>
+  </div>
+
+
+
+  <script src="./js/main.js"></script>
+
+</body>
+
+</html>
